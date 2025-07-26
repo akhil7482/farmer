@@ -1,1 +1,277 @@
-# farmer
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisan Sahayak - Resource Sharing Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+</head>
+<body>
+    <header>
+        <link rel="stylesheet" href="farmer.css">
+        <div class="container">
+            <h1><i class="fas fa-leaf"></i> Kisan Sahayak</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" data-section="home" class="active">Home</a></li>
+                    <li><a href="#" data-section="equipment">Equipment</a></li>
+                    <li><a href="#" data-section="labor">Labor</a></li>
+                    <li><a href="#" data-section="seeds">Seeds</a></li>
+                    <li><a href="#" data-section="soil-test">Soil Test</a></li>
+                    <li><a href="#" data-section="inputs">Inputs</a></li>
+                    <li><a href="#" data-section="contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="language-selector">
+                <select id="languageSelect">
+                    <option value="en">English</option>
+                    <option value="hi">हिन्दी</option>
+                    </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="home" class="active">
+            <h2>Welcome to Kisan Sahayak!</h2>
+            <p>Your one-stop platform for sharing agricultural resources and knowledge.</p>
+            <div class="feature-grid">
+                <div class="feature-card" data-section-target="equipment">
+                    <i class="fas fa-tractor icon-large"></i>
+                    <h3>Rent/Share Equipment</h3>
+                    <p>Access machinery or rent out your idle tools.</p>
+                </div>
+                <div class="feature-card" data-section-target="labor">
+                    <i class="fas fa-users icon-large"></i>
+                    <h3>Find/Offer Labor</h3>
+                    <p>Connect with skilled farm workers or offer your services.</p>
+                </div>
+                <div class="feature-card" data-section-target="seeds">
+                    <i class="fas fa-seedling icon-large"></i>
+                    <h3>Exchange Seeds</h3>
+                    <p>Buy or sell quality seeds directly with other farmers.</p>
+                </div>
+                <div class="feature-card" data-section-target="soil-test">
+                    <i class="fas fa-flask icon-large"></i>
+                    <h3>Get Soil Tested</h3>
+                    <p>Find affordable soil testing and nutrient advice.</p>
+                </div>
+                <div class="feature-card" data-section-target="inputs">
+                    <i class="fas fa-shopping-basket icon-large"></i>
+                    <h3>Bulk Inputs</h3>
+                    <p>Procure quality fertilizers, pesticides, and more collectively.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="equipment">
+            <h2><i class="fas fa-tractor"></i> Equipment Sharing</h2>
+            <p>Find equipment to rent or list your own for others to use.</p>
+            <div class="filter-bar">
+                <input type="text" placeholder="Search equipment..." id="equipmentSearch">
+                <select id="equipmentType">
+                    <option value="">All Types</option>
+                    <option value="tractor">Tractor</option>
+                    <option value="harvester">Harvester</option>
+                    <option value="sprayer">Sprayer</option>
+                    <option value="tiller">Tiller</option>
+                    </select>
+                <button class="add-button" onclick="showForm('equipmentForm')"><i class="fas fa-plus-circle"></i> Add Equipment</button>
+            </div>
+            <div class="card-grid" id="equipmentList">
+                <div class="card">
+                    <h3>Tractor (John Deere)</h3>
+                    <p>Location: Begusarai, Bihat</p>
+                    <p>Rate: ₹500/hour</p>
+                    <button class="action-button">View Details</button>
+                </div>
+                <div class="card">
+                    <h3>Sprayer (Manual)</h3>
+                    <p>Location: Begusarai, Teghra</p>
+                    <p>Rate: ₹50/day</p>
+                    <button class="action-button">View Details</button>
+                </div>
+            </div>
+             <div id="equipmentForm" class="hidden form-popup">
+                <h3>List Your Equipment</h3>
+                <label for="eqName">Equipment Name:</label><input type="text" id="eqName"><br>
+                <label for="eqType">Type:</label><input type="text" id="eqType"><br>
+                <label for="eqLocation">Location:</label><input type="text" id="eqLocation"><br>
+                <label for="eqRate">Rate (per hour/day):</label><input type="text" id="eqRate"><br>
+                <button onclick="submitForm('equipmentForm')">Submit Listing</button>
+                <button onclick="hideForm('equipmentForm')">Cancel</button>
+            </div>
+        </section>
+
+        <section id="labor">
+            <h2><i class="fas fa-users"></i> Skilled Labor Pool</h2>
+            <p>Find skilled workers or offer your services.</p>
+             <div class="filter-bar">
+                <input type="text" placeholder="Search labor..." id="laborSearch">
+                <select id="laborSkill">
+                    <option value="">All Skills</option>
+                    <option value="tractor-operator">Tractor Operator</option>
+                    <option value="grafting">Grafting Expert</option>
+                    <option value="spraying">Pesticide Application</option>
+                    </select>
+                 <button class="add-button" onclick="showForm('laborForm')"><i class="fas fa-plus-circle"></i> Offer Service</button>
+            </div>
+            <div class="card-grid" id="laborList">
+                 <div class="card">
+                    <h3>Ram Singh (Tractor Operator)</h3>
+                    <p>Location: Begusarai, Barauni</p>
+                    <p>Experience: 10 years</p>
+                    <button class="action-button">View Profile</button>
+                </div>
+                <div class="card">
+                    <h3>Priya Devi (Grafting Expert)</h3>
+                    <p>Location: Begusarai, Manjhaul</p>
+                    <p>Rate: ₹300/day</p>
+                    <button class="action-button">View Profile</button>
+                </div>
+            </div>
+             <div id="laborForm" class="hidden form-popup">
+                <h3>Offer Your Service</h3>
+                <label for="lbName">Your Name:</label><input type="text" id="lbName"><br>
+                <label for="lbSkill">Skill:</label><input type="text" id="lbSkill"><br>
+                <label for="lbLocation">Location:</label><input type="text" id="lbLocation"><br>
+                <label for="lbRate">Rate (per day):</label><input type="text" id="lbRate"><br>
+                <button onclick="submitForm('laborForm')">Submit Offer</button>
+                <button onclick="hideForm('laborForm')">Cancel</button>
+            </div>
+        </section>
+
+        <section id="seeds">
+            <h2><i class="fas fa-seedling"></i> Farmer-to-Farmer Seed Exchange</h2>
+            <p>Buy or sell quality, locally adapted seeds directly.</p>
+            <div class="filter-bar">
+                <input type="text" placeholder="Search seeds..." id="seedSearch">
+                <select id="seedType">
+                    <option value="">All Crops</option>
+                    <option value="wheat">Wheat</option>
+                    <option value="maize">Maize</option>
+                    <option value="lentil">Lentil</option>
+                    </select>
+                <button class="add-button" onclick="showForm('seedForm')"><i class="fas fa-plus-circle"></i> List Seeds</button>
+            </div>
+            <div class="card-grid" id="seedList">
+                <div class="card">
+                    <h3>Wheat Seeds (HD 2967)</h3>
+                    <p>Seller: Mohanlal (Bihat)</p>
+                    <p>Quantity: 100 kg</p>
+                    <p>Price: ₹30/kg</p>
+                    <button class="action-button">View Details</button>
+                </div>
+                 <div class="card">
+                    <h3>Local Maize Seeds</h3>
+                    <p>Seller: Geeta Devi (Barauni)</p>
+                    <p>Quantity: 50 kg</p>
+                    <p>Price: ₹25/kg</p>
+                    <button class="action-button">View Details</button>
+                </div>
+            </div>
+             <div id="seedForm" class="hidden form-popup">
+                <h3>List Your Seeds</h3>
+                <label for="sdCrop">Crop Type:</label><input type="text" id="sdCrop"><br>
+                <label for="sdVariety">Variety:</label><input type="text" id="sdVariety"><br>
+                <label for="sdQuantity">Quantity (kg):</label><input type="text" id="sdQuantity"><br>
+                <label for="sdPrice">Price (per kg):</label><input type="text" id="sdPrice"><br>
+                <label for="sdLocation">Location:</label><input type="text" id="sdLocation"><br>
+                <button onclick="submitForm('seedForm')">Submit Listing</button>
+                <button onclick="hideForm('seedForm')">Cancel</button>
+            </div>
+        </section>
+
+        <section id="soil-test">
+            <h2><i class="fas fa-flask"></i> Affordable Soil Testing</h2>
+            <p>Find local labs, submit samples, and get expert recommendations.</p>
+             <div class="filter-bar">
+                <input type="text" placeholder="Search labs by location..." id="soilTestSearch">
+                 <button class="add-button" onclick="showForm('soilTestForm')"><i class="fas fa-vial"></i> Request Test</button>
+            </div>
+            <div class="card-grid" id="soilTestList">
+                <div class="card">
+                    <h3>KVK Begusarai Lab</h3>
+                    <p>Location: Begusarai Sadar</p>
+                    <p>Price: ₹50 per sample</p>
+                    <button class="action-button">Book Test</button>
+                </div>
+                 <div class="card">
+                    <h3>Ram's Mobile Testing</h3>
+                    <p>Location: Teghra Block</p>
+                    <p>Price: ₹75 per sample (home visit)</p>
+                    <button class="action-button">Book Test</button>
+                </div>
+            </div>
+             <div id="soilTestForm" class="hidden form-popup">
+                <h3>Request Soil Test</h3>
+                <label for="stName">Your Name:</label><input type="text" id="stName"><br>
+                <label for="stLocation">Field Location:</label><input type="text" id="stLocation"><br>
+                <label for="stSampleCount">No. of Samples:</label><input type="number" id="stSampleCount" min="1"><br>
+                <button onclick="submitForm('soilTestForm')">Submit Request</button>
+                <button onclick="hideForm('soilTestForm')">Cancel</button>
+            </div>
+        </section>
+
+        <section id="inputs">
+            <h2><i class="fas fa-shopping-basket"></i> Bulk Procurement of Inputs</h2>
+            <p>Pool your demand for better prices on seeds, fertilizers, and pesticides.</p>
+             <div class="filter-bar">
+                <input type="text" placeholder="Search inputs..." id="inputSearch">
+                 <button class="add-button" onclick="showForm('inputsForm')"><i class="fas fa-tag"></i> Place Bulk Order</button>
+            </div>
+            <div class="card-grid" id="inputList">
+                <div class="card">
+                    <h3>Urea Fertilizer</h3>
+                    <p>Current Bulk Price: ₹260/bag</p>
+                    <p>Next Order Due: 25th July</p>
+                    <button class="action-button">Join Order</button>
+                </div>
+                 <div class="card">
+                    <h3>Certified Paddy Seeds (Swarna)</h3>
+                    <p>Current Bulk Price: ₹35/kg</p>
+                    <p>Next Order Due: 30th July</p>
+                    <button class="action-button">Join Order</button>
+                </div>
+            </div>
+             <div id="inputsForm" class="hidden form-popup">
+                <h3>Place Bulk Order</h3>
+                <label for="inItem">Item Name:</label><input type="text" id="inItem"><br>
+                <label for="inQuantity">Desired Quantity:</label><input type="text" id="inQuantity"><br>
+                <label for="inLocation">Delivery Location:</label><input type="text" id="inLocation"><br>
+                <button onclick="submitForm('inputsForm')">Submit Order</button>
+                <button onclick="hideForm('inputsForm')">Cancel</button>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+            <p>Have questions? Reach out to our support team.</p>
+            <form class="contact-form">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Your Phone/Email:</label>
+                <input type="text" id="email" name="email" required>
+
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit" class="action-button">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Kisan Sahayak. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="farmer.js"></script>
+</body>
+</html>
